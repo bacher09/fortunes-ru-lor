@@ -1,0 +1,16 @@
+Source: fortunes-ru-lor
+Priority: optional
+Section: games
+Maintainer: Slava Bacherikov <slava@bacher09.org>
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: fortune-mod
+
+Package: fortunes-ru-lor
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: fortune-mod
+Provides: fortune-cookie-db
+Description: Quotes from linux.org.ru
+ This package provides quotes from poppular russian linux forum: linux.org.ru,
+ also known as lor.

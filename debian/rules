@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+
+build:
+	dh_testdir
+	strfile lor
+
+build-arch: build
+build-indep: build
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	dh_prep
+	install -m 0755 -d $(CURDIR)/debian/tmp/usr/share/games/fortunes/ru
+	dh_install lor /usr/share/games/fortunes/ru/
+	dh_link /usr/share/games/fortunes/ru/lor /usr/share/games/fortunes/ru/lor.u8
+	dh_install lor.dat /usr/share/games/fortunes/ru/
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f *.dat
+	dh_clean
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installdirs -i
+	dh_install -i
+	dh_link -i
+	dh_installdocs -i
+	dh_installchangelogs -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_md5sums -i
+	dh_gencontrol -i
+	dh_installdeb -i
+	dh_builddeb -i
+
+binary: binary-indep
+
+.PHONY: build build-arch build-indep install clean binary-indep binary

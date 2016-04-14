@@ -18,7 +18,7 @@ create_pkgdir: ${FILENAME} ${DEBIAN_FILES}
 	cp -rf debian/* "${DIR_NAME}/debian/"
 
 package: create_pkgdir
-	cd ${DIR_NAME} && debuild -us -uc -v${VERSION}
+	cd ${DIR_NAME} && debuild -us -uc
 
 clean:
 	@rm -f "${FILENAME}"

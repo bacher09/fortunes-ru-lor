@@ -6,6 +6,7 @@ build:
 
 build-arch: build
 build-indep: build
+binary-arch:
 
 install: build
 	dh_testdir
